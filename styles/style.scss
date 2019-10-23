@@ -1,0 +1,345 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+%second-font {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+%link-reset {
+  text-decoration: none;
+  color: #000;
+}
+
+%transition {
+  transition: .3s ease-out;
+}
+
+%button {
+  font-family: Montserrat Alternates;
+  width: 320px;
+  height: 60px;
+  font-size: 24px;
+  background-color: #7000FF;
+  color: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  cursor: pointer;
+  @extend %transition;
+  text-decoration: none;
+}
+
+%header {
+  text-transform: uppercase;
+  font-size: 96px;
+  text-align: center;
+}
+
+.link {
+  cursor: pointer!important;
+}
+
+.header {
+  margin-bottom: 30px;
+  @extend %transition;
+}
+
+.logo {
+  color: #7000FF;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 36px;
+  cursor: pointer;
+  margin: 30px;
+  display: block;
+}
+
+.blast {
+  display: inline-block;
+  cursor: default;
+  
+  &:hover {
+      animation: blast;
+      animation-duration: .7s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      color: rgb(0, 195, 255);
+    }
+
+    &--root {
+      display: inline-block;
+      letter-spacing: -5px;
+      padding-left: 1px;
+      margin: 0;
+    }
+}
+
+@keyframes blast {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.main {
+  padding-top: 30px;
+  transition: .9s ease-out;
+}
+
+.main-screen {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+
+  &__text {
+    font-size: 28px;
+    position: relative;
+
+      &--top {
+        font-weight: 100;
+        letter-spacing: 5px;
+
+        &--alt {
+          @extend %second-font;
+          font-weight: 100;
+          font-style: italic;
+        }
+      }
+
+      &--main {
+        letter-spacing: 5px;
+      }
+  }
+
+    &__button-group {
+      display: flex;
+    }
+}
+
+.face-img {
+  max-width: 400px;
+  animation: bounceFace;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounceFace {
+  0% {
+    transform: translate(0, -10px);
+  }
+
+  50% {
+    transform: translate(0, 10px);
+  }
+
+  100% {
+    transform: translate(0, -10px);
+  }
+}
+
+.insta {
+  @extend %link-reset;
+}
+
+.main-screen__button {
+  @extend %button;
+
+  &:hover .arrow {
+    @extend %transition;
+    transform: translate(0);
+  }
+
+  &--second {
+    @extend %button;
+    background-color: #fff;
+    color: #000;
+    margin-left: 20px;
+    border: 1px solid rgba(0, 0, 0, .2);
+  }
+}
+    
+.arrow {
+  transform: translate(-10px);
+  &--black {
+    fill: #000!important;
+  }
+}
+
+.skills {
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+  &__header {
+    @extend %header;
+  }
+}
+
+.container {
+  position: relative;
+  width: 900px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.card {
+  margin: 30px;
+}
+
+.circle-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  z-index: 1000;
+  transform: rotate(-90deg);
+
+  &__circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 20;
+    transform: translate(10px, 10px);
+
+    &:nth-child(2) {
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+    }
+  }
+}
+
+.card:nth-child(1) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 100) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(2) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 80) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(3) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 70) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(4) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 90) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(5) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 100) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(6) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 100) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(7) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 80) / 100);
+  stroke: #7000FF;
+}
+
+.card:nth-child(8) .circle-container .circle-container__circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 90) / 100);
+  stroke: #7000FF;
+}
+
+.percent {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: '';
+    background-color: #000;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  & .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+    & .circle-text {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 36px;
+      @extend %transition;
+      z-index: 1000;
+    }
+  }
+}
+
+.works {
+  height: 100vh;
+
+  &__header {
+    @extend %header;
+    padding-top: 30px;
+  }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 15px;
+    padding: 30px;
+    height: 70vh;
+}
